@@ -324,12 +324,12 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
             )
 
             # make sure opts.fields doesn't specify an invalid field
-            none_model_fields = {k for k, v in fields.items() if not v}
-            missing_fields = none_model_fields.difference(new_class.declared_fields)
-            if missing_fields:
-                message = "Unknown field(s) (%s) specified for %s"
-                message %= (", ".join(missing_fields), opts.model.__name__)
-                raise FieldError(message)
+            # none_model_fields = {k for k, v in fields.items() if not v}
+            # missing_fields = none_model_fields.difference(new_class.declared_fields)
+            # if missing_fields:
+            #     message = "Unknown field(s) (%s) specified for %s"
+            #     message %= (", ".join(missing_fields), opts.model.__name__)
+            #     raise FieldError(message)
             # Include all the other declared fields.
             fields.update(new_class.declared_fields)
         else:
